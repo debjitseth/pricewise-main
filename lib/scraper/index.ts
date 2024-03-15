@@ -5,11 +5,8 @@ import * as cheerio from 'cheerio';
 import { extractPrice, extractCurrency, extractDescription } from '../utils';
 
 
-export async function scapeAmazonProduct(url: string) {
+export async function scrapeAmazonProduct(url: string) {
     if (!url) return;
-
-
-
 
     //BrightData proxy configuration
     const username = String(process.env.BRIGHT_DATA_USERNAME);
