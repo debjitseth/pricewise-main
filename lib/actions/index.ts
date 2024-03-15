@@ -1,6 +1,6 @@
 "use server" //all the code here will only run on the server end
 
-import { scapeAmazonProduct } from "../scraper";
+import { scrapeAmazonProduct } from "../scraper";
 import { connectToDB } from "../mongoose";
 import Product from "../models/product.model";
 import { getAveragePrice, getHighestPrice, getLowestPrice } from "../utils";
@@ -14,7 +14,7 @@ export async function scrapeAndStoreProduct(productUrl: string) {
     //try catch block as we are dealing with async and database actions
     try {
         connectToDB();
-        const scrapedProduct = await scapeAmazonProduct(productUrl);
+        const scrapedProduct = await scrapeAmazonProduct(productUrl);
 
         if (!scrapedProduct) return;
 
